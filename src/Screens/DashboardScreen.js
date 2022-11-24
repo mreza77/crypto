@@ -29,7 +29,7 @@ const DashboardScreen = () => {
         ws.current.onopen = () => {
             ws.current.binaryType = "arraybuffer";
             const json = JSON.stringify(data);
-            // ws.current.send(json)
+            ws.current.send(json)
         }
         ws.current.onmessage = (e) => {
             //  console.log(`Log:${e.data}`)
