@@ -6,28 +6,24 @@ import colors from '../../Config/colors';
 import CustomText from '../Common/CustomText';
 import nouns from '../../Enums/nouns.json';
 
+const parts = [
+    { id: 1, name: nouns["cryptoName"] },
+    { id: 2, name: nouns["spread"] },
+    { id: 3, name: nouns["sell"] },
+    { id: 4, name: nouns["buy"] },
+    { id: 5, name: nouns["chg"] },
+]
 
 const HeaderTable = () => {
     return (
         <View style={styles.container}>
-            <View style={styles.textContainer}>
-                <CustomText style={styles.text}>{nouns["cryptoName"]}</CustomText>
-            </View>
-            <View style={styles.textContainer}>
-                <CustomText style={styles.text}>{nouns["spread"]}</CustomText>
-            </View>
-
-            <View style={styles.textContainer}>
-                <CustomText style={styles.text}>{nouns["sell"]}</CustomText>
-            </View>
-
-            <View style={styles.textContainer}>
-                <CustomText style={styles.text}>{nouns["buy"]}</CustomText>
-            </View>
-
-            <View style={styles.textContainer}>
-                <CustomText style={styles.text}>{nouns["chg"]}</CustomText>
-            </View>
+            {parts.map((item, index) => {
+                return (
+                    <View style={styles.textContainer} key={index}>
+                        <CustomText style={styles.text}>{item.name}</CustomText>
+                    </View>
+                )
+            })}
         </View>
     )
 }
